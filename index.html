@@ -8,12 +8,13 @@
 
   <h1>Rock Paper Scissors</h1>
 
-  <button onclick="playGame('rock')">Rock</button>
-  <button onclick="playGame('paper')">Paper</button>
-  <button onclick="playGame('scissors')">Scissors</button>
-  
+  <button onclick="playGame('rock'); scoreUpdate(result)">Rock</button>
+  <button onclick="playGame('paper'); scoreUpdate(result)">Paper</button>
+  <button onclick="playGame('scissors'); scoreUpdate(result)">Scissors</button>
+
   <p id="moves"></p>
   <p id="result"></p>
+  <p id="score"></p>
 
   <script src="script.js"></script>
 </body>

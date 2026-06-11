@@ -1,3 +1,20 @@
+  const score = {
+  wins: 0,
+  losses: 0,
+  ties: 0
+  };
+function scoreUpdate(result) {
+  if (result === 'You win') {
+    score.wins += 1;
+  } else if (result === 'You lose') {
+    score.losses += 1;
+  } else if (result === 'It is a tie') {
+    score.ties += 1;
+  }
+  document.getElementById('score').innerHTML =
+    `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+}
+
 function playGame(playerMove) {
   const randomNumber = Math.random();
   let computerMove = '';
@@ -17,7 +34,7 @@ function playGame(playerMove) {
       result = 'It is a tie';
     } else if (computerMove === 'paper') {
       result = 'You lose';
-    } else {
+    } else if (computerMove === 'rock') {
       result = 'You win';
     }
   }
@@ -27,7 +44,7 @@ function playGame(playerMove) {
       result = 'You win';
     } else if (computerMove === 'paper') {
       result = 'It is a tie';
-    } else {
+    } else if (computerMove === 'scissors') {
       result = 'You lose';
     }
   }
@@ -37,7 +54,7 @@ function playGame(playerMove) {
       result = 'You lose';
     } else if (computerMove === 'paper') {
       result = 'You win';
-    } else {
+    } else if (computerMove === 'scissors') {
       result = 'It is a tie';
     }
   }
@@ -47,4 +64,5 @@ function playGame(playerMove) {
 
   document.getElementById('result').innerHTML =
     result;
+  scoreUpdate(result);
 }
