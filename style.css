@@ -10,11 +10,25 @@ body {
 }
 
 button {
-  font-size: 18px;
-  padding: 10px 20px;
+  font-size: 28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: 10px;
   cursor: pointer;
   color: rgb(94, 162, 201);
+}
+
+.move-icon {
+  height: 50px;
+}
+.move-button {
+  background-color: transparent;
+  border: 5px solid rgb(255,255,255);
+  width: 100px; 
+  height: 100px;
+  border-radius: 50%;
 }
 
 #result {

@@ -1,8 +1,11 @@
-  let score = JSON.parse(localStorage.getItem('score')) || {
+let score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
   ties: 0
-  };
+};
+
+document.getElementById('score').innerHTML =
+    `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 
 function scoreUpdate(result) {
   if (result === 'You win') {
@@ -61,11 +64,10 @@ function playGame(playerMove) {
       result = 'It is a tie';
     }
   }
-
+  scoreUpdate(result);
   document.getElementById('moves').innerHTML =
     `You picked ${playerMove}. Computer picked ${computerMove}.`;
 
   document.getElementById('result').innerHTML =
     result;
-  scoreUpdate(result);
 }

@@ -8,14 +8,14 @@
 
   <h1>Rock Paper Scissors</h1>
 
-  <button onclick="playGame('rock'); scoreUpdate(result)">Rock</button>
-  <button onclick="playGame('paper'); scoreUpdate(result)">Paper</button>
-  <button onclick="playGame('scissors'); scoreUpdate(result)">Scissors</button>
+  <button onclick="playGame('rock')" class="move-button"><img src="images/image-rock.png" class="move-icon" alt="Rock"></button>
+  <button onclick="playGame('paper')" class="move-button"><img src="images/image-paper.png" class="move-icon" alt="Paper"></button>
+  <button onclick="playGame('scissors')" class="move-button"><img src="images/image-scissors.png" class="move-icon" alt="Scissors"></button>
   <button onclick="
   score.wins = 0;
   score.losses = 0;
   score.ties = 0;
-  localStorage.removeItem('score'); scoreUpdate(result); ">Reset Score</button>
+  localStorage.removeItem('score'); scoreUpdate(result); " class="move-button"><img src="images/image-reset.png" class="move-icon" alt="Reset Score"></button>
   <p id="moves"></p>
   <p id="result"></p>
   <p id="score"></p>
