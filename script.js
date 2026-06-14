@@ -1,8 +1,9 @@
-  const score = {
+  let score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
   losses: 0,
   ties: 0
   };
+
 function scoreUpdate(result) {
   if (result === 'You win') {
     score.wins += 1;
@@ -13,6 +14,8 @@ function scoreUpdate(result) {
   }
   document.getElementById('score').innerHTML =
     `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+
+    localStorage.setItem('score', JSON.stringify(score));
 }
 
 function playGame(playerMove) {
@@ -34,7 +37,7 @@ function playGame(playerMove) {
       result = 'It is a tie';
     } else if (computerMove === 'paper') {
       result = 'You lose';
-    } else if (computerMove === 'rock') {
+    } else if (computerMove === 'scissors') {
       result = 'You win';
     }
   }
