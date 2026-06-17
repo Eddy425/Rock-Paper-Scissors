@@ -7,6 +7,23 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 document.getElementById('score').innerHTML =
     `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 
+let isAuto = false;
+let intervalId;
+
+function autoPlay(){
+  if(!isAuto){
+    intervalId = setInterval(function(){
+    const playerMove = pickComputerMove();
+    playGame(playerMove);
+  }, 500);
+  isAuto = true;
+  } else {
+    clearInterval(intervalId);
+    isAuto = false;
+  }
+
+}
+
 function scoreUpdate(result) {
   if (result === 'You win') {
     score.wins += 1;
@@ -21,18 +38,19 @@ function scoreUpdate(result) {
     localStorage.setItem('score', JSON.stringify(score));
 }
 
-function playGame(playerMove) {
+function pickComputerMove(){
   const randomNumber = Math.random();
-  let computerMove = '';
-
   if (randomNumber < 1 / 3) {
-    computerMove = 'rock';
+    return 'rock';
   } else if (randomNumber < 2 / 3) {
-    computerMove = 'paper';
+    return 'paper';
   } else {
-    computerMove = 'scissors';
+    return 'scissors';
   }
+}
 
+function playGame(playerMove) {
+  const computerMove = pickComputerMove();
   let result = '';
 
   if (playerMove === 'rock') {
